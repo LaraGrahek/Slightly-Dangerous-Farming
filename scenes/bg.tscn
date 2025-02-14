@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://cp1ckbjckvndb"]
+
+[ext_resource type="Script" path="res://scenes/bg.gd" id="1_q61sg"]
+[ext_resource type="PackedScene" uid="uid://3wjbxxyohgoy" path="res://scenes/animal.tscn" id="2_hyi64"]
+[ext_resource type="Texture2D" uid="uid://cr4d5abp5vxwb" path="res://farm/bacground.JPG" id="2_q2vyd"]
+[ext_resource type="PackedScene" uid="uid://cb8ch2xp71idq" path="res://scenes/dice.tscn" id="3_7xtl3"]
+[ext_resource type="PackedScene" uid="uid://dqusmxxj3yui6" path="res://scenes/wheel.tscn" id="4_bc5qg"]
+[ext_resource type="PackedScene" uid="uid://ucmv52yq6ubd" path="res://scenes/text_above.tscn" id="4_rbk5a"]
+[ext_resource type="PackedScene" uid="uid://34ffafbv20ut" path="res://scenes/instructions.tscn" id="7_02kj0"]
+[ext_resource type="Texture2D" uid="uid://c83pk4de2e2nr" path="res://Untitled_Artwork (1).png" id="8_dedb1"]
+[ext_resource type="Texture2D" uid="uid://dmmb2ujlp6qj7" path="res://farm/overlay.PNG" id="9_8ck3b"]
+[ext_resource type="PackedScene" uid="uid://cl65mr6e867va" path="res://scenes/end.tscn" id="10_vqf33"]
+
+[node name="bg" type="Node2D"]
+script = ExtResource("1_q61sg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_q2vyd")
+
+[node name="animal" parent="." instance=ExtResource("2_hyi64")]
+visible = false
+position = Vector2(-7, -15)
+scale = Vector2(1.05, 1.05)
+
+[node name="dice" parent="." instance=ExtResource("3_7xtl3")]
+visible = false
+position = Vector2(-138, 49)
+
+[node name="wheel" parent="." instance=ExtResource("4_bc5qg")]
+visible = false
+position = Vector2(-81, 46)
+
+[node name="text_above" parent="." instance=ExtResource("4_rbk5a")]
+visible = false
+position = Vector2(-47, 17)
+
+[node name="points" type="RichTextLabel" parent="."]
+offset_left = 264.0
+offset_top = 60.0
+offset_right = 396.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0.529412, 0.121569, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+
+[node name="pig" type="RichTextLabel" parent="."]
+offset_left = 262.0
+offset_top = 185.0
+offset_right = 342.0
+offset_bottom = 285.0
+theme_override_colors/default_color = Color(0.643137, 0.188235, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+
+[node name="cow" type="RichTextLabel" parent="."]
+offset_left = 262.0
+offset_top = 298.0
+offset_right = 342.0
+offset_bottom = 398.0
+theme_override_colors/default_color = Color(0.643137, 0.188235, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+
+[node name="chicken" type="RichTextLabel" parent="."]
+offset_left = 262.0
+offset_top = 401.0
+offset_right = 342.0
+offset_bottom = 501.0
+theme_override_colors/default_color = Color(0.643137, 0.188235, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+
+[node name="carrot" type="RichTextLabel" parent="."]
+offset_left = 265.0
+offset_top = 500.0
+offset_right = 345.0
+offset_bottom = 600.0
+theme_override_colors/default_color = Color(0.643137, 0.188235, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+
+[node name="instructions" parent="." instance=ExtResource("7_02kj0")]
+visible = false
+position = Vector2(587, 330)
+scale = Vector2(0.95, 0.95)
+
+[node name="instrucBut" type="Button" parent="."]
+offset_left = 1058.0
+offset_top = 11.0
+offset_right = 1141.0
+offset_bottom = 93.0
+icon = ExtResource("8_dedb1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.411765, 0.972549, 0.756863, 0.756863)
+self_modulate = Color(0.345098, 0.490196, 0.27451, 0.411765)
+top_level = true
+position = Vector2(600.5, 320.5)
+scale = Vector2(1.04253, 1.02006)
+texture = ExtResource("9_8ck3b")
+
+[node name="end" parent="." instance=ExtResource("10_vqf33")]
+
+[connection signal="pressed" from="instrucBut" to="." method="_on_instruc_but_pressed"]

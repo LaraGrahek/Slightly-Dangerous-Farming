@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl65mr6e867va"]
+
+[ext_resource type="Texture2D" uid="uid://cnhd0mdnanrsf" path="res://farm/Untitled_Artwork (1).jpg" id="1_b5u84"]
+[ext_resource type="Script" path="res://scenes/end.gd" id="1_v0cqs"]
+[ext_resource type="Texture2D" uid="uid://dnkd2gemceqtn" path="res://farm/IMG_7026.jpg" id="3_gf11k"]
+
+[node name="end" type="Node2D"]
+script = ExtResource("1_v0cqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324)
+texture = ExtResource("1_b5u84")
+
+[node name="point" type="RichTextLabel" parent="."]
+offset_left = 332.0
+offset_top = 308.0
+offset_right = 423.0
+offset_bottom = 391.0
+theme_override_colors/default_color = Color(0.184314, 0.27451, 0.65098, 1)
+theme_override_font_sizes/normal_font_size = 55
+
+[node name="money" type="RichTextLabel" parent="."]
+offset_left = 239.0
+offset_top = 429.0
+offset_right = 447.0
+offset_bottom = 600.0
+theme_override_colors/default_color = Color(0.2, 0.341176, 0.152941, 1)
+theme_override_font_sizes/normal_font_size = 120
+
+[node name="restart" type="Button" parent="."]
+offset_left = 691.0
+offset_top = 551.0
+offset_right = 1126.0
+offset_bottom = 631.0
+icon = ExtResource("3_gf11k")
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

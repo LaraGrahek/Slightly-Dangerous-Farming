@@ -1,0 +1,99 @@
+[gd_scene load_steps=18 format=3 uid="uid://cb8ch2xp71idq"]
+
+[ext_resource type="Script" path="res://scenes/dice.gd" id="1_ufmtw"]
+[ext_resource type="Texture2D" uid="uid://x2wwn3mofcvp" path="res://farm/dieONE.PNG" id="2_0cf8h"]
+[ext_resource type="Texture2D" uid="uid://dgpab3dkhk5hd" path="res://farm/die1.PNG" id="3_6o0w8"]
+[ext_resource type="Texture2D" uid="uid://dpsd51cypqqsq" path="res://farm/die2.PNG" id="4_vdy3s"]
+[ext_resource type="Texture2D" uid="uid://cavr6mffey5d" path="res://farm/dieFOUR.PNG" id="5_wx5hj"]
+[ext_resource type="Texture2D" uid="uid://bxqo3wmokgru4" path="res://farm/die3.PNG" id="6_6xe7k"]
+[ext_resource type="Texture2D" uid="uid://clcdihhqr4aha" path="res://farm/die4.PNG" id="7_53n42"]
+[ext_resource type="Texture2D" uid="uid://c6p3otm84lgig" path="res://farm/dieTWO.PNG" id="8_knu7b"]
+[ext_resource type="Texture2D" uid="uid://bdrlwleqmq2y6" path="res://farm/die5.PNG" id="9_ikbmt"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="10_bcrdm"]
+[ext_resource type="Texture2D" uid="uid://buirb8erwpgik" path="res://farm/die6.PNG" id="10_u23w5"]
+[ext_resource type="Texture2D" uid="uid://d4khy1l4eapw0" path="res://farm/dieTHREE.PNG" id="11_v750x"]
+[ext_resource type="Texture2D" uid="uid://bdu7slkothujq" path="res://farm/die7.PNG" id="12_qmkhy"]
+[ext_resource type="Texture2D" uid="uid://ixmit4vh0ywi" path="res://farm/die8.PNG" id="13_ub8jp"]
+[ext_resource type="Texture2D" uid="uid://bghhpx1hqjjwp" path="res://farm/die9.PNG" id="14_dnuy1"]
+[ext_resource type="Texture2D" uid="uid://dl87ybu56etlc" path="res://farm/die10.PNG" id="15_hjqn5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ortr5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0cf8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6o0w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vdy3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wx5hj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6xe7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_53n42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_knu7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ikbmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u23w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v750x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qmkhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ub8jp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dnuy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hjqn5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="dice" type="Node2D"]
+script = ExtResource("1_ufmtw")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 458.0
+offset_right = 988.0
+offset_bottom = 529.0
+text = "ROLL"
+
+[node name="diceAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(888, 327)
+sprite_frames = SubResource("SpriteFrames_ortr5")
+frame = 2
+frame_progress = 0.119863
+script = ExtResource("10_bcrdm")
+
+[node name="diceText" type="RichTextLabel" parent="."]
+offset_left = 748.0
+offset_top = 15.0
+offset_right = 1043.0
+offset_bottom = 98.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.105681, 0.228785, 0.263639, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="diceAnim" method="_on_button_pressed"]

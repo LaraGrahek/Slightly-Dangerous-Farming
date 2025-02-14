@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ucmv52yq6ubd"]
+
+[ext_resource type="Script" path="res://scenes/text_above.gd" id="1_s260y"]
+
+[node name="text_above" type="Node2D"]
+script = ExtResource("1_s260y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 744.0
+offset_top = 42.0
+offset_right = 1077.0
+offset_bottom = 139.0
+text = "HELLLLLLLLLLLLLOOOOOOOOOOOOOOO"

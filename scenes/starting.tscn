@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgqs5y3o13v16"]
+
+[ext_resource type="Script" path="res://scenes/starting.gd" id="1_8b82j"]
+[ext_resource type="Texture2D" uid="uid://b73jl51y1smpc" path="res://farm/Untitled_Artwork.jpg" id="2_sl1y0"]
+[ext_resource type="Texture2D" uid="uid://c1vx3ko7j51uy" path="res://farm/Untitled_Artwork (7).png" id="3_858fd"]
+[ext_resource type="Texture2D" uid="uid://dwfcfj4asdqqj" path="res://Untitled_Artwork (4).png" id="3_wlx3q"]
+[ext_resource type="PackedScene" uid="uid://34ffafbv20ut" path="res://scenes/instructions.tscn" id="4_5okxm"]
+[ext_resource type="Texture2D" uid="uid://khkmmymwrue0" path="res://Untitled_Artwork (2).png" id="5_15omf"]
+
+[node name="starting" type="Node2D"]
+script = ExtResource("1_8b82j")
+
+[node name="StartScreen" type="Sprite2D" parent="."]
+position = Vector2(576, 323)
+texture = ExtResource("2_sl1y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(581, 326)
+texture = ExtResource("3_858fd")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 359.0
+offset_top = 293.0
+offset_right = 807.0
+offset_bottom = 464.0
+icon = ExtResource("3_wlx3q")
+
+[node name="instrucBut" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 475.0
+offset_right = 763.0
+offset_bottom = 613.0
+icon = ExtResource("5_15omf")
+
+[node name="instructions" parent="." instance=ExtResource("4_5okxm")]
+visible = false
+position = Vector2(609, 330)
+scale = Vector2(0.93, 0.93)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="instrucBut" to="." method="_on_instruc_but_pressed"]
